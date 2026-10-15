@@ -1,8 +1,8 @@
-# Lúmen Odontologia
+# Dentary
 
 **Plataforma web de agendamento e gerenciamento odontológico.**
 
-A Lúmen Odontologia é uma aplicação desenvolvida em React para conectar pacientes e profissionais em um ambiente digital intuitivo, facilitando o agendamento de consultas e a gestão dos atendimentos.
+A Dentary é uma aplicação desenvolvida em React para conectar pacientes e profissionais em um ambiente digital intuitivo, facilitando o agendamento de consultas e a gestão dos atendimentos.
 
 O projeto integra uma API REST para autenticação e gerenciamento de dados, com interfaces específicas para pacientes e administradores.
 
@@ -61,12 +61,8 @@ Os arquivos otimizados serão gerados na pasta `dist/`.
 
 ## Identidade visual
 
-A interface segue uma proposta minimalista e contemporânea, com tons de verde, cores neutras e elementos visuais que reforçam a identidade da Lúmen Odontologia.
+A interface segue uma proposta minimalista e contemporânea, com tons de verde, cores neutras e elementos visuais que reforçam a identidade da Dentary.
 
 ## Publicação
 
 O projeto pode ser publicado em serviços de hospedagem para aplicações front-end, como a [Vercel](https://vercel.com/). Configure as variáveis de ambiente na plataforma e habilite o redirecionamento das rotas para o `index.html`, conforme necessário para o React Router.
-
----
-
-**Projeto acadêmico desenvolvido para a disciplina de Programação Orientada a Serviços (POS).**
