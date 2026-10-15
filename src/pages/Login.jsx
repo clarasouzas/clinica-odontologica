@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ArrowLeft, LockKeyhole, LogIn } from 'lucide-react'
+import { ArrowLeft, LockKeyhole } from 'lucide-react'
 import { Button } from '@heroui/react'
 import { Link } from 'react-router-dom'
 import { mensagemDeErro } from '../api/client'
@@ -43,8 +43,13 @@ export function Login() {
           <input id="senha" className="clinic-input" type="password" autoComplete="current-password" value={senha} onChange={e => setSenha(e.target.value)} placeholder="Digite sua senha" required />
         </div>
         <div style={{ display: 'flex', justifyContent: 'flex-end', margin: '.2rem 0 1.25rem', fontSize: '.85rem' }}><Link to="/esqueci-senha">Esqueci minha senha</Link></div>
-        <Button type="submit" className="clinic-primary-button" isDisabled={enviando}>
-          {enviando ? 'Entrando...' : <>Entrar <LogIn size={17} /></>}
+
+        <Button
+          type="submit"
+          className="clinic-primary-button"
+          isDisabled={enviando}
+        >
+          {enviando ? 'Entrando...' : 'Entrar'}
         </Button>
       </form>
       <div className="clinic-auth-links" style={{ justifyContent: 'center' }}><span style={{ color: 'var(--clinic-muted)' }}>Ainda não tem conta?</span> <Link to="/cadastro">Cadastre-se gratuitamente</Link></div>

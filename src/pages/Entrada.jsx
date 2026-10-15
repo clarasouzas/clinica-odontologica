@@ -13,7 +13,7 @@ export function Entrada() {
       </div>
       <div style={{ display: 'grid', gap: '.8rem' }}>
         <Button className="clinic-primary-button" onPress={() => navigate('/login')}>
-          Entrar na minha conta <ArrowRight size={17} />
+          Entrar na minha conta
         </Button>
         <Button className="clinic-secondary-button" onPress={() => navigate('/cadastro')}>
           Criar minha conta

@@ -1,5 +1,4 @@
 import { Button, Card, Col, Image, ListGroup, Row } from 'react-bootstrap'
-import { Stethoscope } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { api } from '../api/client'
 import { useAuth } from '../AuthContext'
@@ -13,7 +12,6 @@ function ehProxima(aula) {
   return ['solicitado', 'confirmado'].includes(aula.status) && new Date(aula.fim) > new Date()
 }
 
-// percorre as páginas até achar a primeira aula que ainda não passou
 async function buscarProximaAula(caminho) {
   let proxima = caminho
   while (proxima) {
@@ -34,22 +32,27 @@ export function Inicio() {
   if (aula.erro) return <Erro erro={aula.erro} tentarDeNovo={aula.recarregar} />
   if (organizacao.carregando || aula.carregando) return <Carregando />
 
-  const { nome, descricao, logo } = organizacao.dados
-
   return (
     <Row className="g-4">
       <Col md={5}>
-        <Card className="text-center h-100">
-          <Card.Body>
-            {logo ? <Image src={logo} alt={nome} fluid className="mb-3" /> : <div className="clinic-dashboard-mark"><Stethoscope size={34} /></div>}
-            <Card.Text className="text-secondary">{descricao}</Card.Text>
+        <Card className="clinic-calendar-card h-100">
+          <Card.Body className="p-2">
+            <Image
+              src="/calendario.png"
+              alt="Calendário de consultas odontológicas"
+              className="clinic-calendar-image"
+              fluid
+            />
           </Card.Body>
         </Card>
       </Col>
+
       <Col md={7}>
         <p className="clinic-dashboard-eyebrow">SEU CUIDADO, NO SEU TEMPO</p>
         <h2>Olá, {usuario.nome}!</h2>
+
         <h5 className="mt-4">Sua próxima consulta</h5>
+
         {aula.dados ? (
           <ListGroup className="mb-3">
             <AulaItem aula={aula.dados} />
@@ -57,6 +60,7 @@ export function Inicio() {
         ) : (
           <p className="text-secondary">Você não tem consultas agendadas.</p>
         )}
+
         <Button as={Link} to="/agendar" size="lg">
           <i className="bi bi-calendar-plus"></i> Agendar consulta
         </Button>
