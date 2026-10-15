@@ -18,9 +18,9 @@ export function Enviado() {
         <ListGroup className="mb-3 text-start">
           <AulaItem aula={agendamento} />
         </ListGroup>
-        <Alert variant="info">O administrador da escola vai confirmar a sua aula.</Alert>
+        <Alert variant="info">A equipe da clínica vai confirmar sua consulta.</Alert>
         <div className="d-flex justify-content-center gap-2">
-          <Button as={Link} to={`/aulas/${agendamento.id}`}>Ver aula</Button>
+          <Button as={Link} to={`/aulas/${agendamento.id}`}>Ver consulta</Button>
           <Button as={Link} to="/inicio" variant="outline-primary">Início</Button>
         </div>
       </Card.Body>

@@ -1,7 +1,7 @@
 {
-  "name": "pos-2026-projeto02",
+  "name": "clinica-odontologica-web",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@heroui/react": "^3.0.1",
+    "@heroui/styles": "^3.2.6",
     "bootstrap": "^5.3.8",
     "lucide-react": "^1.56.0",
     "react": "^19.2.8",

@@ -74,7 +74,7 @@ function FormRecurso({ recurso }) {
     <Card>
       <Card.Body>
         <div className="d-flex align-items-center mb-4">
-          <h2 className="me-auto mb-0">{recurso.id ? 'Editar professor ou sala' : 'Novo professor ou sala'}</h2>
+          <h2 className="me-auto mb-0">{recurso.id ? 'Editar dentista' : 'Novo dentista'}</h2>
           {recurso.id && (
             <Button as={Link} to={`/admin/recursos/${recurso.id}/horarios`} variant="outline-primary">
               <i className="bi bi-clock"></i> Horários
@@ -96,7 +96,7 @@ function FormRecurso({ recurso }) {
           <Form.Group className="mb-3" controlId="capacidade">
             <Form.Label>Capacidade</Form.Label>
             <Form.Control type="number" value={capacidade} onChange={e => setCapacidade(e.target.value)} isInvalid={!!erros.capacidade} />
-            <Form.Text>Quantos alunos ao mesmo tempo: 1 para aulas individuais, mais para turmas.</Form.Text>
+            <Form.Text>Capacidade de atendimentos simultâneos deste dentista.</Form.Text>
             <Form.Control.Feedback type="invalid">{erros.capacidade?.join(' ')}</Form.Control.Feedback>
           </Form.Group>
           <Form.Group className="mb-3" controlId="foto">
@@ -114,7 +114,7 @@ function FormRecurso({ recurso }) {
             type="switch"
             id="ativo"
             className="mb-3"
-            label="Ativo (inativos não aparecem para os alunos)"
+            label="Ativo (inativos não aparecem para os pacientes)"
             checked={ativo}
             onChange={e => setAtivo(e.target.checked)}
           />

@@ -32,7 +32,7 @@ export function Avaliar() {
   return (
     <Card>
       <Card.Body>
-        <h2>Avaliar aula</h2>
+        <h2>Avaliar consulta</h2>
         <p className="text-secondary">
           {aula.dados.servico_nome} com {aula.dados.recurso_nome}, {formatarData(aula.dados.inicio)}
         </p>

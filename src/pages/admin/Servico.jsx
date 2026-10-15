@@ -112,7 +112,7 @@ function FormServico({ servico, recursos }) {
             </Form.Group>
           </Row>
           <Form.Group className="mb-3">
-            <Form.Label>Professores e salas que oferecem</Form.Label>
+            <Form.Label>Dentistas que oferecem</Form.Label>
             {recursos.map(recurso => (
               <Form.Check
                 key={recurso.id}
@@ -140,7 +140,7 @@ function FormServico({ servico, recursos }) {
             type="switch"
             id="ativo"
             className="mb-3"
-            label="Ativo (inativos não aparecem para os alunos)"
+            label="Ativo (inativos não aparecem para os pacientes)"
             checked={ativo}
             onChange={e => setAtivo(e.target.checked)}
           />

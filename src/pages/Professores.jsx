@@ -13,8 +13,8 @@ export function Professores() {
 
   return (
     <>
-      <h2 className="mb-4">Professores e salas</h2>
-      {!recursos.carregando && recursos.itens.length === 0 && <Alert variant="info">Nenhum professor ou sala cadastrado.</Alert>}
+      <h2 className="mb-4">Dentistas</h2>
+      {!recursos.carregando && recursos.itens.length === 0 && <Alert variant="info">Nenhum dentista cadastrado.</Alert>}
       <Row xs={1} md={2} lg={3} className="g-4">
         {recursos.itens.map(recurso => (
           <Col key={recurso.id}>

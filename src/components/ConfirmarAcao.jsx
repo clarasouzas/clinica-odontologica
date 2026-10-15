@@ -1,9 +1,9 @@
 import { Confirmacao } from './Confirmacao'
 
 const ACOES = {
-  confirmar: { titulo: 'Confirmar aula', mensagem: 'Deseja confirmar esta aula?', variante: 'success' },
-  concluir: { titulo: 'Concluir aula', mensagem: 'Deseja marcar esta aula como concluída?', variante: 'success' },
-  cancelar: { titulo: 'Cancelar aula', mensagem: 'Deseja mesmo cancelar esta aula?', variante: 'danger' },
+  confirmar: { titulo: 'Confirmar consulta', mensagem: 'Deseja confirmar esta consulta?', variante: 'success' },
+  concluir: { titulo: 'Concluir consulta', mensagem: 'Deseja marcar esta consulta como concluída?', variante: 'success' },
+  cancelar: { titulo: 'Cancelar consulta', mensagem: 'Deseja mesmo cancelar esta consulta?', variante: 'danger' },
 }
 
 export function ConfirmarAcao({ acao, onConfirmar, onFechar }) {

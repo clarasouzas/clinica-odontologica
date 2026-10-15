@@ -37,7 +37,7 @@ export function Professor() {
             </div>
             {pode('api.add_agendamento') && (
               <Button as={Link} to={`/agendar?recurso=${id}`}>
-                <i className="bi bi-calendar-plus"></i> Agendar com este professor ou sala
+                <i className="bi bi-calendar-plus"></i> Agendar com este dentista
               </Button>
             )}
           </div>

@@ -47,9 +47,9 @@ export function Aula() {
         <StatusAula status={aula.status} />
       </Card.Header>
       <ListGroup variant="flush">
-        <ListGroup.Item><strong>Professor ou sala:</strong> {aula.recurso_nome}</ListGroup.Item>
+        <ListGroup.Item><strong>Dentista:</strong> {aula.recurso_nome}</ListGroup.Item>
         {pode('api.view_agendamento') && (
-          <ListGroup.Item><strong>Aluno:</strong> {aula.cliente_nome}</ListGroup.Item>
+          <ListGroup.Item><strong>Paciente:</strong> {aula.cliente_nome}</ListGroup.Item>
         )}
         <ListGroup.Item><strong>Dia:</strong> {formatarData(aula.inicio)}</ListGroup.Item>
         <ListGroup.Item>

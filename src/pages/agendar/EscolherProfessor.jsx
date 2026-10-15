@@ -17,9 +17,9 @@ export function EscolherProfessor() {
   return (
     <>
       <small className="text-secondary">Passo 2 de 4</small>
-      <h2 className="mb-4">Com quem ou onde?</h2>
+      <h2 className="mb-4">Com qual dentista?</h2>
       {recursos.itens.length === 0 ? (
-        <Alert variant="info">Nenhum professor ou sala realiza este serviço.</Alert>
+        <Alert variant="info">Nenhum dentista realiza este serviço.</Alert>
       ) : (
         <Row xs={1} md={2} lg={3} className="g-4">
           <Col>
@@ -27,8 +27,8 @@ export function EscolherProfessor() {
               <Card.Body className="d-flex gap-3">
                 <i className="bi bi-people-fill text-secondary display-5"></i>
                 <div>
-                  <Card.Title>Qualquer um</Card.Title>
-                  <Card.Text className="text-secondary">Mostra os horários livres de todos.</Card.Text>
+                  <Card.Title>Qualquer dentista</Card.Title>
+                  <Card.Text className="text-secondary">Veja os horários disponíveis com todos os dentistas.</Card.Text>
                   <Button as={Link} to={`/agendar/horario?servico=${servico}`}>Escolher</Button>
                 </div>
               </Card.Body>

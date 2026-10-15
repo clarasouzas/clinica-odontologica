@@ -5,7 +5,7 @@ import { Carregando } from './Carregando'
 import { CarregarMais } from './CarregarMais'
 import { Erro } from './Erro'
 
-export function ListaAulas({ caminho, vazio = 'Nenhuma aula aqui.', mostrarAluno = false }) {
+export function ListaAulas({ caminho, vazio = 'Nenhuma consulta aqui.', mostrarAluno = false }) {
   const aulas = usePaginado(caminho)
 
   if (aulas.erro) return <Erro erro={aulas.erro} tentarDeNovo={aulas.recarregar} />

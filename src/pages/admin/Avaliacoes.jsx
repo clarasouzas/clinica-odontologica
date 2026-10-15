@@ -23,7 +23,7 @@ export function Avaliacoes() {
       <Row className="mb-4 g-2">
         <Col md={8}>
           <Form.Select value={recurso} onChange={e => setRecurso(e.target.value)}>
-            <option value="">Todos os professores e salas</option>
+            <option value="">Todos os dentistas</option>
             {recursos.dados?.map(r => (
               <option key={r.id} value={r.id}>{r.nome}</option>
             ))}

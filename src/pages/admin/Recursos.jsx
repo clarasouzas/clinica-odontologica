@@ -15,16 +15,16 @@ export function Recursos() {
   return (
     <>
       <div className="d-flex flex-wrap align-items-center gap-2 mb-4">
-        <h2 className="me-auto mb-0">Professores e salas</h2>
+        <h2 className="me-auto mb-0">Dentistas</h2>
         <FiltroAtivo valor={ativo} onChange={setAtivo} />
         <Button as={Link} to="/admin/recursos/novo">
-          <i className="bi bi-plus-lg"></i> Novo professor ou sala
+          <i className="bi bi-plus-lg"></i> Novo dentista
         </Button>
       </div>
 
       {recursos.erro && <Erro erro={recursos.erro} tentarDeNovo={recursos.recarregar} />}
       {!recursos.carregando && !recursos.erro && recursos.itens.length === 0 && (
-        <Alert variant="info">Cadastre o primeiro professor ou sala.</Alert>
+        <Alert variant="info">Cadastre o primeiro dentista.</Alert>
       )}
       <ListGroup>
         {recursos.itens.map(recurso => (

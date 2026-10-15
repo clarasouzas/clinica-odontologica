@@ -35,7 +35,7 @@ export function Agenda() {
         </Col>
         <Col md={6}>
           <Form.Select className="mb-4" value={recurso} onChange={e => mudar('recurso', e.target.value)}>
-            <option value="">Todos os professores e salas</option>
+            <option value="">Todos os dentistas</option>
             {recursos.dados?.map(r => (
               <option key={r.id} value={r.id}>{r.nome}</option>
             ))}
@@ -45,7 +45,7 @@ export function Agenda() {
 
       {aulas.erro && <Erro erro={aulas.erro} tentarDeNovo={aulas.recarregar} />}
       {aulas.carregando && <Carregando />}
-      {aulas.dados?.length === 0 && <Alert variant="info">Nenhuma aula neste dia.</Alert>}
+      {aulas.dados?.length === 0 && <Alert variant="info">Nenhuma consulta neste dia.</Alert>}
       <ListGroup>
         {aulas.dados?.map(aula => (
           <AulaItem key={aula.id} aula={aula} mostrarAluno />

@@ -1,4 +1,5 @@
 import { Button, Card, Col, Image, ListGroup, Row } from 'react-bootstrap'
+import { Stethoscope } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { api } from '../api/client'
 import { useAuth } from '../AuthContext'
@@ -40,23 +41,24 @@ export function Inicio() {
       <Col md={5}>
         <Card className="text-center h-100">
           <Card.Body>
-            <Image src={logo ?? '/logo.png'} alt={nome} fluid className="mb-3" />
+            {logo ? <Image src={logo} alt={nome} fluid className="mb-3" /> : <div className="clinic-dashboard-mark"><Stethoscope size={34} /></div>}
             <Card.Text className="text-secondary">{descricao}</Card.Text>
           </Card.Body>
         </Card>
       </Col>
       <Col md={7}>
+        <p className="clinic-dashboard-eyebrow">SEU CUIDADO, NO SEU TEMPO</p>
         <h2>Olá, {usuario.nome}!</h2>
-        <h5 className="mt-4">Sua próxima aula</h5>
+        <h5 className="mt-4">Sua próxima consulta</h5>
         {aula.dados ? (
           <ListGroup className="mb-3">
             <AulaItem aula={aula.dados} />
           </ListGroup>
         ) : (
-          <p className="text-secondary">Você não tem aulas agendadas.</p>
+          <p className="text-secondary">Você não tem consultas agendadas.</p>
         )}
         <Button as={Link} to="/agendar" size="lg">
-          <i className="bi bi-calendar-plus"></i> Agendar
+          <i className="bi bi-calendar-plus"></i> Agendar consulta
         </Button>
       </Col>
     </Row>

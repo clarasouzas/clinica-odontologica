@@ -38,7 +38,7 @@ export function Servicos() {
             {servico.imagem ? (
               <Image src={servico.imagem} width={64} rounded />
             ) : (
-              <i className="bi bi-music-note-list fs-2 text-secondary"></i>
+              <i className="bi bi-heart-pulse fs-2 text-secondary"></i>
             )}
             <div className="me-auto">
               <div className="fw-semibold">{servico.nome}</div>

@@ -35,7 +35,7 @@ export function Confirmar() {
       })
       navigate('/agendar/enviado', { state: { agendamento } })
     } catch (erro) {
-      // a vaga acabou ou já existe outra aula no horário: volta para a escolha do horário
+      // a vaga acabou ou já existe outra consulta no horário: volta para a escolha do horário
       if (erro.dados?.inicio) {
         navigate(location.state?.voltar ?? `/agendar/horario?servico=${servico.dados.id}&data=${inicio.slice(0, 10)}`, {
           state: { erro: erro.dados.inicio.join(' ') },
@@ -54,7 +54,7 @@ export function Confirmar() {
       <Card>
         <ListGroup variant="flush">
           <ListGroup.Item><strong>Serviço:</strong> {servico.dados.nome}</ListGroup.Item>
-          <ListGroup.Item><strong>Professor ou sala:</strong> {recurso.dados.nome}</ListGroup.Item>
+          <ListGroup.Item><strong>Dentista:</strong> {recurso.dados.nome}</ListGroup.Item>
           <ListGroup.Item><strong>Dia:</strong> {formatarData(inicio)}</ListGroup.Item>
           <ListGroup.Item>
             <strong>Horário:</strong> {formatarHora(inicio)} às {formatarHora(fim)} ({servico.dados.duracao_min} min)
@@ -71,9 +71,9 @@ export function Confirmar() {
                 rows={3}
                 value={observacoes}
                 onChange={e => setObservacoes(e.target.value)}
-                placeholder="Ex.: Banda Os Afinados, 4 integrantes"
+                placeholder="Ex.: desconforto ao mastigar ou consulta para um dependente"
               />
-              <Form.Text>Se a aula for para um filho, informe o nome e a idade da criança.</Form.Text>
+              <Form.Text>Se a consulta for para outra pessoa, informe o nome e a idade dela nas observações.</Form.Text>
             </Form.Group>
             <div className="d-flex gap-2">
               <Button variant="outline-secondary" onClick={() => navigate(-1)}>Voltar</Button>

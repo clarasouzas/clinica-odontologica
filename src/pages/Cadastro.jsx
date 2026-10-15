@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import { Alert, Button, Form } from 'react-bootstrap'
+import { ArrowLeft, UserRoundPlus } from 'lucide-react'
+import { Button } from '@heroui/react'
 import { Link } from 'react-router-dom'
 import { cadastrar, mensagemDeErro } from '../api/client'
 import { useAuth } from '../AuthContext'
@@ -21,38 +22,46 @@ export function Cadastro() {
     try {
       await cadastrar(nome, email, senha)
       await entrar(email, senha)
-    } catch (erro) {
-      setErro(mensagemDeErro(erro))
-      setErros(erro.dados ?? {})
+    } catch (erroCadastro) {
+      setErro(mensagemDeErro(erroCadastro))
+      setErros(erroCadastro.dados ?? {})
       setEnviando(false)
     }
   }
 
+  const campoErro = campo => Array.isArray(erros[campo]) ? erros[campo].join(' ') : ''
+
   return (
     <>
-      <h2 className="mb-4">Criar conta</h2>
-      {erro && <Alert variant="danger">{erro}</Alert>}
-      <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3" controlId="nome">
-          <Form.Label>Nome</Form.Label>
-          <Form.Control value={nome} onChange={e => setNome(e.target.value)} isInvalid={!!erros.nome} required />
-          <Form.Control.Feedback type="invalid">{erros.nome?.join(' ')}</Form.Control.Feedback>
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="email">
-          <Form.Label>E-mail</Form.Label>
-          <Form.Control type="email" value={email} onChange={e => setEmail(e.target.value)} isInvalid={!!erros.email} required />
-          <Form.Control.Feedback type="invalid">{erros.email?.join(' ')}</Form.Control.Feedback>
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="senha">
-          <Form.Label>Senha</Form.Label>
-          <Form.Control type="password" value={senha} onChange={e => setSenha(e.target.value)} isInvalid={!!erros.senha} required />
-          <Form.Control.Feedback type="invalid">{erros.senha?.join(' ')}</Form.Control.Feedback>
-        </Form.Group>
-        <Button type="submit" className="w-100" disabled={enviando}>Criar conta</Button>
-      </Form>
-      <p className="mt-3 mb-0">
-        Já tem conta? <Link to="/login">Entrar</Link>
-      </p>
+      <Link to="/" style={{ display: 'inline-flex', alignItems: 'center', gap: '.4rem', fontSize: '.85rem', marginBottom: '1.5rem' }}><ArrowLeft size={15} /> Voltar ao início</Link>
+      <div className="clinic-auth-heading">
+        <span className="clinic-brand-mark" style={{ width: 42, height: 42 }}><UserRoundPlus size={21} /></span>
+        <h2>Crie sua conta</h2>
+        <p>É rapidinho. Cadastre-se para marcar e acompanhar suas consultas.</p>
+      </div>
+      {erro && <div className="clinic-alert" role="alert">{erro}</div>}
+      <form onSubmit={handleSubmit}>
+        <div className="clinic-field">
+          <label htmlFor="nome">Nome completo</label>
+          <input id="nome" className="clinic-input" autoComplete="name" value={nome} onChange={e => setNome(e.target.value)} aria-invalid={!!campoErro('nome')} required placeholder="Como podemos chamar você?" />
+          {campoErro('nome') && <small style={{ color: '#b42348' }}>{campoErro('nome')}</small>}
+        </div>
+        <div className="clinic-field">
+          <label htmlFor="email">E-mail</label>
+          <input id="email" className="clinic-input" type="email" autoComplete="email" value={email} onChange={e => setEmail(e.target.value)} aria-invalid={!!campoErro('email')} required placeholder="voce@exemplo.com" />
+          {campoErro('email') && <small style={{ color: '#b42348' }}>{campoErro('email')}</small>}
+        </div>
+        <div className="clinic-field">
+          <label htmlFor="senha">Crie uma senha</label>
+          <input id="senha" className="clinic-input" type="password" autoComplete="new-password" value={senha} onChange={e => setSenha(e.target.value)} aria-invalid={!!campoErro('senha')} required minLength={8} placeholder="Use uma senha segura" />
+          {campoErro('senha') && <small style={{ color: '#b42348' }}>{campoErro('senha')}</small>}
+          <small style={{ color: 'var(--clinic-muted)' }}>Escolha uma senha segura com pelo menos 8 caracteres.</small>
+        </div>
+        <Button type="submit" className="clinic-primary-button" isDisabled={enviando}>
+          {enviando ? 'Criando conta...' : <>Criar conta <UserRoundPlus size={17} /></>}
+        </Button>
+      </form>
+      <div className="clinic-auth-links" style={{ justifyContent: 'center' }}><span style={{ color: 'var(--clinic-muted)' }}>Já tem uma conta?</span> <Link to="/login">Entrar</Link></div>
     </>
   )
 }
