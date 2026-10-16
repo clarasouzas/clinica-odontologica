@@ -43,7 +43,10 @@ export function Perfil() {
         <Card>
           <Card.Body>
             <div className="text-center mb-4">
-              <Foto src={usuario.foto} tamanho={96} />
+              <div className="d-flex justify-content-center">
+                <Foto src={usuario.foto} tamanho={96} />
+              </div>
+
               <h2 className="mt-2 mb-0">{usuario.nome}</h2>
               <div className="text-secondary">{usuario.email}</div>
               <div className="text-secondary">{usuario.organizacao.nome}</div>
@@ -74,9 +77,7 @@ export function Perfil() {
                 <Button as={Link} to="/perfil/senha" variant="outline-primary" className="ms-auto">
                   <i className="bi bi-key"></i> Alterar senha
                 </Button>
-                <Button variant="outline-danger" onClick={sair}>
-                  <i className="bi bi-box-arrow-right"></i> Sair
-                </Button>
+               
               </div>
             </Form>
           </Card.Body>

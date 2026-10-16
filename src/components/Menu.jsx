@@ -8,17 +8,20 @@ import {
   Menu as MenuIcon,
   Settings2,
   Stethoscope,
-  UserRound,
   Users,
   X,
+  UserRound,
+  ChevronDown,
 } from 'lucide-react'
-import { Button } from '@heroui/react'
+import { Button, Dropdown } from '@heroui/react'
 import { Link, NavLink } from 'react-router-dom'
 import { useAuth } from '../AuthContext'
+import { Foto } from './Foto'
 
 export function Menu() {
   const { usuario, pode, inicio, sair } = useAuth()
   const [menuAberto, setMenuAberto] = useState(false)
+  const [perfilAberto, setPerfilAberto] = useState(false)
 
   const administrador = pode('api.change_organizacao')
 
@@ -84,26 +87,46 @@ export function Menu() {
         </nav>
 
         <div className="clinic-user-actions">
-          <Link to="/perfil" className="clinic-profile-link" title="Meu perfil">
-            <span className="clinic-avatar">
-              {usuario?.nome?.trim()?.charAt(0)?.toUpperCase() || (
-                <UserRound size={17} />
-              )}
-            </span>
-            <span className="clinic-user-name">
-              {usuario?.nome?.split(' ')[0]}
-            </span>
-          </Link>
+          <Dropdown>
+            <Dropdown.Trigger>
+              <button
+                type="button"
+                className="clinic-profile-trigger"
+                aria-label="Abrir menu do usuário"
+              >
+                <Foto
+                  src={usuario?.foto}
+                  nome={usuario?.nome}
+                  tamanho={38}
+                />
+                <ChevronDown size={15} />
+              </button>
+            </Dropdown.Trigger>
 
-          <Button
-            className="clinic-logout-button"
-            variant="tertiary"
-            onPress={sair}
-            aria-label="Sair da conta"
-          >
-            <LogOut size={17} />
-            <span>Sair</span>
-          </Button>
+            <Dropdown.Popover>
+              <Dropdown.Menu aria-label="Menu do usuário">
+                <Dropdown.Item
+                  id="perfil"
+                  textValue="Meu perfil"
+                  onAction={() => {
+                    window.location.href = '/perfil'
+                  }}
+                >
+                  <UserRound size={17} />
+                  Meu perfil
+                </Dropdown.Item>
+
+                <Dropdown.Item
+                  id="sair"
+                  textValue="Sair"
+                  onAction={sair}
+                >
+                  <LogOut size={17} />
+                  Sair
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown.Popover>
+          </Dropdown>
         </div>
       </div>
     </header>

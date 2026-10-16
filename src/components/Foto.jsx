@@ -1,8 +1,25 @@
-import { Image } from 'react-bootstrap'
 
-export function Foto({ src, icone = 'bi-person-circle', tamanho = 48 }) {
-  if (src) {
-    return <Image src={src} roundedCircle width={tamanho} height={tamanho} className="object-fit-cover align-middle" />
-  }
-  return <i className={`bi ${icone} text-secondary align-middle`} style={{ fontSize: tamanho, lineHeight: 1 }}></i>
+import { Avatar } from '@heroui/react'
+import { UserRound } from 'lucide-react'
+
+export function Foto({ src, nome = '', tamanho = 48 }) {
+  return (
+    <Avatar
+      size="lg"
+      className="overflow-hidden rounded-full"
+      style={{ width: tamanho, height: tamanho, minWidth: tamanho }}
+    >
+      {src ? (
+        <img
+          src={src}
+          alt={nome || 'Foto de perfil'}
+          className="h-full w-full rounded-full object-cover"
+        />
+      ) : nome ? (
+        nome.trim().charAt(0).toUpperCase()
+      ) : (
+        <UserRound size={tamanho * 0.55} />
+      )}
+    </Avatar>
+  )
 }
