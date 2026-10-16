@@ -14,21 +14,21 @@ import { Servicos } from './pages/admin/Servicos'
 import { Confirmar } from './pages/agendar/Confirmar'
 import { AlterarSenha } from './pages/AlterarSenha'
 import { EscolherHorario } from './pages/agendar/EscolherHorario'
-import { EscolherProfessor } from './pages/agendar/EscolherProfessor'
+import { EscolherDentista } from './pages/agendar/EscolherDentista'
 import { EscolherServico } from './pages/agendar/EscolherServico'
 import { Enviado } from './pages/agendar/Enviado'
-import { Aula } from './pages/Aula'
+import { Consulta } from './pages/Consulta'
 import { Avaliar } from './pages/Avaliar'
 import { Cadastro } from './pages/Cadastro'
 import { Entrada } from './pages/Entrada'
 import { EsqueciSenha } from './pages/EsqueciSenha'
 import { Inicio } from './pages/Inicio'
 import { Login } from './pages/Login'
-import { MinhasAulas } from './pages/MinhasAulas'
+import { MinhasConsultas } from './pages/MinhasConsultas'
 import { NaoEncontrado } from './pages/NaoEncontrado'
 import { Perfil } from './pages/Perfil'
-import { Professor } from './pages/Professor'
-import { Professores } from './pages/Professores'
+import { Dentista } from './pages/Dentista'
+import { Dentistas } from './pages/Dentistas'
 
 function App() {
   return (
@@ -44,13 +44,13 @@ function App() {
           <Route element={<Layout />}>
             <Route path="/inicio" element={<Inicio />} />
             <Route path="/agendar" element={<EscolherServico />} />
-            <Route path="/agendar/professor" element={<EscolherProfessor />} />
+            <Route path="/agendar/dentista" element={<EscolherDentista />} />
             <Route path="/agendar/horario" element={<EscolherHorario />} />
             <Route path="/agendar/confirmar" element={<Confirmar />} />
             <Route path="/agendar/enviado" element={<Enviado />} />
-            <Route path="/aulas" element={<MinhasAulas />} />
-            <Route path="/aulas/:id" element={<Aula />} />
-            <Route path="/aulas/:id/avaliar" element={<Avaliar />} />
+            <Route path="/consultas" element={<MinhasConsultas />} />
+            <Route path="/consultas/:id" element={<Consulta />} />
+            <Route path="/consultas/:id/avaliar" element={<Avaliar />} />
             <Route path="/perfil" element={<Perfil />} />
             <Route path="/perfil/senha" element={<AlterarSenha />} />
             <Route path="/admin/agenda" element={<Agenda />} />
@@ -64,8 +64,8 @@ function App() {
             <Route path="/admin/servicos/novo" element={<NovoServico />} />
             <Route path="/admin/servicos/:id" element={<EditarServico />} />
             <Route path="/admin/avaliacoes" element={<Avaliacoes />} />
-            <Route path="/professores" element={<Professores />} />
-            <Route path="/professores/:id" element={<Professor />} />
+            <Route path="/dentistas" element={<Dentistas />} />
+            <Route path="/dentistas/:id" element={<Dentista />} />
             <Route path="*" element={<NaoEncontrado />} />
           </Route>
         </Routes>

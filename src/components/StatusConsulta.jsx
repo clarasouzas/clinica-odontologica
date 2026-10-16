@@ -7,7 +7,7 @@ const STATUS = {
   cancelado: { cor: 'secondary', texto: 'Cancelada' },
 }
 
-export function StatusAula({ status }) {
+export function StatusConsulta({ status }) {
   const { cor, texto } = STATUS[status]
   return <Badge bg={cor} text={cor === 'warning' ? 'dark' : undefined}>{texto}</Badge>
 }

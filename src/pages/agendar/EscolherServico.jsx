@@ -17,7 +17,7 @@ export function EscolherServico() {
     if (recurso) {
       return `/agendar/horario?servico=${servico.id}&recurso=${recurso}`
     }
-    return `/agendar/professor?servico=${servico.id}`
+    return `/agendar/dentista?servico=${servico.id}`
   }
 
   return (

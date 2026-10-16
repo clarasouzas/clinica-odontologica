@@ -39,8 +39,8 @@ export function Menu() {
         ...(pode('api.add_agendamento')
           ? [{ to: '/agendar', label: 'Agendar consulta', icon: CalendarDays }]
           : []),
-        { to: '/aulas', label: 'Minhas consultas', icon: ClipboardCheck },
-        { to: '/professores', label: 'Dentistas', icon: Stethoscope },
+        { to: '/consultas', label: 'Minhas consultas', icon: ClipboardCheck },
+        { to: '/dentistas', label: 'Dentistas', icon: Stethoscope },
       ]
 
   function fecharMenu() {

@@ -10,20 +10,20 @@ import { useApi } from '../hooks/useApi'
 export function Avaliar() {
   const { id } = useParams()
   const navigate = useNavigate()
-  const aula = useApi(`/agendamentos/${id}/`)
+  const consulta = useApi(`/agendamentos/${id}/`)
   const [nota, setNota] = useState(0)
   const [comentario, setComentario] = useState('')
   const [erro, setErro] = useState(null)
 
-  if (aula.erro) return <Erro erro={aula.erro} tentarDeNovo={aula.recarregar} />
-  if (aula.carregando) return <Carregando />
+  if (consulta.erro) return <Erro erro={consulta.erro} tentarDeNovo={consulta.recarregar} />
+  if (consulta.carregando) return <Carregando />
 
   async function handleSubmit(e) {
     e.preventDefault()
     setErro(null)
     try {
       await api(`/agendamentos/${id}/avaliar/`, { method: 'POST', body: { nota, comentario } })
-      navigate(`/aulas/${id}`)
+      navigate(`/consultas/${id}`)
     } catch (erro) {
       setErro(mensagemDeErro(erro))
     }
@@ -34,7 +34,7 @@ export function Avaliar() {
       <Card.Body>
         <h2>Avaliar consulta</h2>
         <p className="text-secondary">
-          {aula.dados.servico_nome} com {aula.dados.recurso_nome}, {formatarData(aula.dados.inicio)}
+          {consulta.dados.servico_nome} com {consulta.dados.recurso_nome}, {formatarData(consulta.dados.inicio)}
         </p>
         {erro && <Alert variant="danger">{erro}</Alert>}
         <Form onSubmit={handleSubmit}>

@@ -1,7 +1,7 @@
 import { Alert, Col, Form, ListGroup, Row } from 'react-bootstrap'
 import { useSearchParams } from 'react-router-dom'
 import { buscarTodas } from '../../api/client'
-import { AulaItem } from '../../components/AulaItem'
+import { ConsultaItem } from '../../components/ConsultaItem'
 import { Carregando } from '../../components/Carregando'
 import { Erro } from '../../components/Erro'
 import { SeletorData } from '../../components/SeletorData'
@@ -17,7 +17,7 @@ export function Agenda() {
   if (recurso) {
     caminho += `&recurso=${recurso}`
   }
-  const aulas = useApi(caminho, buscarTodas)
+  const consultas = useApi(caminho, buscarTodas)
   const recursos = useApi('/recursos/', buscarTodas)
 
   function mudar(nome, valor) {
@@ -43,12 +43,12 @@ export function Agenda() {
         </Col>
       </Row>
 
-      {aulas.erro && <Erro erro={aulas.erro} tentarDeNovo={aulas.recarregar} />}
-      {aulas.carregando && <Carregando />}
-      {aulas.dados?.length === 0 && <Alert variant="info">Nenhuma consulta neste dia.</Alert>}
+      {consultas.erro && <Erro erro={consultas.erro} tentarDeNovo={consultas.recarregar} />}
+      {consultas.carregando && <Carregando />}
+      {consultas.dados?.length === 0 && <Alert variant="info">Nenhuma consulta neste dia.</Alert>}
       <ListGroup>
-        {aulas.dados?.map(aula => (
-          <AulaItem key={aula.id} aula={aula} mostrarAluno />
+        {consultas.dados?.map(consulta => (
+          <ConsultaItem key={consulta.id} consulta={consulta} mostrarAluno />
         ))}
       </ListGroup>
     </>

@@ -6,7 +6,7 @@ import { Erro } from '../../components/Erro'
 import { Foto } from '../../components/Foto'
 import { usePaginado } from '../../hooks/useApi'
 
-export function EscolherProfessor() {
+export function EscolherDentista() {
   const [params] = useSearchParams()
   const servico = params.get('servico')
   const recursos = usePaginado(`/recursos/?servicos=${servico}`)
@@ -45,7 +45,7 @@ export function EscolherProfessor() {
                     <Button as={Link} to={`/agendar/horario?servico=${servico}&recurso=${recurso.id}`}>
                       Escolher
                     </Button>
-                    <Button as={Link} to={`/professores/${recurso.id}`} variant="link">
+                    <Button as={Link} to={`/dentistas/${recurso.id}`} variant="link">
                       Ver avaliações
                     </Button>
                   </div>

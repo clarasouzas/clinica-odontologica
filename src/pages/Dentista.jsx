@@ -9,7 +9,7 @@ import { Erro } from '../components/Erro'
 import { Foto } from '../components/Foto'
 import { useApi, usePaginado } from '../hooks/useApi'
 
-export function Professor() {
+export function Dentista() {
   const { id } = useParams()
   const { pode } = useAuth()
   const recurso = useApi(`/recursos/${id}/`)

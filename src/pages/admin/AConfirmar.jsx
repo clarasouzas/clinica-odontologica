@@ -39,22 +39,22 @@ export function AConfirmar() {
         <Alert variant="success">Nenhum pedido para confirmar.</Alert>
       )}
       <ListGroup>
-        {pedidos.itens.map(aula => (
-          <ListGroup.Item key={aula.id} className="d-flex flex-wrap align-items-center gap-3">
+        {pedidos.itens.map(consulta => (
+          <ListGroup.Item key={consulta.id} className="d-flex flex-wrap align-items-center gap-3">
             <div className="text-center">
-              <div className="fw-bold">{formatarHora(aula.inicio)}</div>
-              <small className="text-secondary">{formatarData(aula.inicio)}</small>
+              <div className="fw-bold">{formatarHora(consulta.inicio)}</div>
+              <small className="text-secondary">{formatarData(consulta.inicio)}</small>
             </div>
             <div className="me-auto">
-              <Link to={`/aulas/${aula.id}`} className="fw-semibold">{aula.servico_nome}</Link>
-              <div><small className="text-secondary">{aula.recurso_nome} · {aula.cliente_nome}</small></div>
-              {aula.observacoes && <small className="fst-italic">{aula.observacoes}</small>}
+              <Link to={`/consultas/${consulta.id}`} className="fw-semibold">{consulta.servico_nome}</Link>
+              <div><small className="text-secondary">{consulta.recurso_nome} · {consulta.cliente_nome}</small></div>
+              {consulta.observacoes && <small className="fst-italic">{consulta.observacoes}</small>}
             </div>
             <div className="d-flex gap-2">
-              <Button variant="success" size="sm" onClick={() => setPendente({ id: aula.id, acao: 'confirmar' })}>
+              <Button variant="success" size="sm" onClick={() => setPendente({ id: consulta.id, acao: 'confirmar' })}>
                 <i className="bi bi-check-lg"></i> Confirmar
               </Button>
-              <Button variant="outline-danger" size="sm" onClick={() => setPendente({ id: aula.id, acao: 'cancelar' })}>
+              <Button variant="outline-danger" size="sm" onClick={() => setPendente({ id: consulta.id, acao: 'cancelar' })}>
                 Cancelar
               </Button>
             </div>

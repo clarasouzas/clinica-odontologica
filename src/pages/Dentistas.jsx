@@ -6,7 +6,7 @@ import { Erro } from '../components/Erro'
 import { Foto } from '../components/Foto'
 import { usePaginado } from '../hooks/useApi'
 
-export function Professores() {
+export function Dentistas() {
   const recursos = usePaginado('/recursos/')
 
   if (recursos.erro) return <Erro erro={recursos.erro} tentarDeNovo={recursos.recarregar} />
@@ -18,7 +18,7 @@ export function Professores() {
       <Row xs={1} md={2} lg={3} className="g-4">
         {recursos.itens.map(recurso => (
           <Col key={recurso.id}>
-            <Card as={Link} to={`/professores/${recurso.id}`} className="h-100 text-decoration-none">
+            <Card as={Link} to={`/dentistas/${recurso.id}`} className="h-100 text-decoration-none">
               <Card.Body className="d-flex gap-3">
                 <Foto src={recurso.foto} tamanho={64} />
                 <div>
