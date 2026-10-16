@@ -61,7 +61,7 @@ Os arquivos otimizados serão gerados na pasta `dist/`.
 
 ## Identidade visual
 
-A interface segue uma proposta minimalista e contemporânea, com tons de verde, cores neutras e elementos visuais que reforçam a identidade da Dentary.
+A interface segue uma proposta minimalista e contemporânea, com tons de lavanda, cores neutras e elementos visuais que reforçam a identidade da Dentary.
 
 ## Publicação
 
